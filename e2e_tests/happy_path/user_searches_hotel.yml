@@ -1,0 +1,5 @@
+test_cases:
+  - test_case: user looks for a hotel
+    steps:
+      - user: I am looking for a hotel
+      - utter: utter_hotel_inform_rating

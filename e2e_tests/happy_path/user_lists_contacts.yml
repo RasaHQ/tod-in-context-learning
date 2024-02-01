@@ -1,0 +1,5 @@
+test_cases:
+  - test_case: user adds a contact to their list
+    steps:
+      - user: show my who my contacts are
+      - utter: utter_list_contacts
