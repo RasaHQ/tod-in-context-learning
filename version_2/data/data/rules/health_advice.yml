@@ -1,0 +1,5 @@
+rules:
+  - rule: health advice
+    steps:
+      - intent: health_advice
+      - action: utter_cant_advice_on_health

@@ -21,11 +21,6 @@ rasa = [
     # {version = "3.7.0rc3", python = ">=3.9", allow-prereleases = true}
     {version = "3.7.0rc3", allow-prereleases = true}
 ]
-rasa-plus = [
-    # {path = "../rasa-plus", develop=true, python = "<3.9"},
-    # {version = "3.7.0rc3", python = ">=3.9", allow-prereleases = true}
-    {version = "3.7.0rc3", allow-prereleases = true}
-]
 
 [tool.poetry.group.dev.dependencies]
 toml = "^0.10.2"

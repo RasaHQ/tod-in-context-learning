@@ -1,0 +1,16 @@
+rules:
+  - rule: add contact
+    steps:
+      - intent: add_contact
+      - action: add_contact
+      - active_loop: add_contact
+
+  - rule: Submit add contact form
+    condition:
+    - active_loop: add_contact
+    steps:
+    - action: add_contact
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_contact_added

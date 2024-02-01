@@ -1,0 +1,17 @@
+version: "3.1"
+stories:
+- story: list contacts - has contacts
+  steps:
+    - intent: verify_account
+    - action: utter_ask_verify_account_email
+    - intent: inform
+      entities:
+      - email: "me@gmail.com"
+    - action: utter_ask_based_in_california
+    - intent: why_needed
+    - action: utter_california_compliance
+    - action: utter_ask_based_in_california
+    - intent: deny
+    - action: utter_ask_verify_account_confirmation
+    - intent: affirm
+    - action: utter_verify_account_success

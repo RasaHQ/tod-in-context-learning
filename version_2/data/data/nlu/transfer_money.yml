@@ -1,0 +1,19 @@
+version: "3.1"
+
+nlu:
+- intent: transfer_money
+  examples: |
+    - I want to send some money
+    - I need to transfer $
+    - send a transfer
+    - I want to send money to [Jacqueline](name)
+    - I want to send [413](amount)$ to [Maria](name)
+- intent: inform
+  examples: |
+    - just [Jim](name)
+    - to [Mary](name)
+    - to [John](name)
+    - $[100](amount)
+    - [5](amount) dollars please
+    - send $[10](amount)
+    - [150](amount)$

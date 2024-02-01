@@ -1,0 +1,16 @@
+rules:
+  - rule: setup recurrent payment
+    steps:
+      - intent: setup_recurrent_payment
+      - action: setup_recurrent_payment
+      - active_loop: setup_recurrent_payment
+
+  - rule: complete recurrent payment form
+    condition:
+    - active_loop: setup_recurrent_payment
+    steps:
+    - action: setup_recurrent_payment
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null     
+    - action: utter_payment_complete

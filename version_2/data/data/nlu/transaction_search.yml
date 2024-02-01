@@ -1,0 +1,8 @@
+version: "3.1"
+
+nlu:
+- intent: transaction_search
+  examples: |
+    - show my latest transactions
+    - last transactions
+    - what have I been spending money on

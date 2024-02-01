@@ -1,0 +1,6 @@
+rules:
+  - rule: hotel search
+    steps:
+      - intent: hotel_search
+      - action: action_search_hotel
+      - action: utter_hotel_inform_rating

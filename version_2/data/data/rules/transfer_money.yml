@@ -1,0 +1,16 @@
+rules:
+  - rule: transfer money
+    steps:
+      - intent: transfer_money
+      - action: transfer_money
+      - active_loop: transfer_money
+
+  - rule: Submit transfer money form
+    condition:
+    - active_loop: transfer_money
+    steps:
+    - action: transfer_money
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_transfer_complete

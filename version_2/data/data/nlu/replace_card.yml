@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: replace_card
+  examples: |
+    - I need a new card
+    - replace my [lost](replacement_reason) card
+    - card replacement
+    - my card is [damaged](replacement_reason)
+
+- intent: inform
+  examples: |
+    - [lost](replacement_reason)
+    - [damaged](replacement_reason)
+    - I [lost](replacement_reason) it

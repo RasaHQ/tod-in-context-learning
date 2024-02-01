@@ -1,0 +1,139 @@
+version: "3.1"
+
+intents:
+  - setup_recurrent_payment
+
+entities:
+  - recurrent_payment_type
+  - recurrent_payment_frequency
+  - date
+
+actions:
+    - action_execute_recurrent_payment
+    - validate_recurrent_payment_start_date
+    - validate_recurrent_payment_end_date
+
+slots:
+  recurrent_payment_type:
+    type: categorical
+    values:
+      - "direct debit"
+      - "standing order"
+    mappings:
+      - type: from_entity
+        entity: recurrent_payment_type
+        conditions:
+        - active_loop: setup_recurrent_payment
+  recurrent_payment_recipient:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+        conditions:
+        - active_loop: setup_recurrent_payment       
+  recurrent_payment_amount_of_money:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: amount
+        conditions:
+        - active_loop: setup_recurrent_payment
+  recurrent_payment_frequency:
+    type: categorical
+    values:
+      - "monthly"
+      - "yearly"
+    mappings:
+      - type: from_entity
+        entity: recurrent_payment_frequency
+        conditions:
+        - active_loop: setup_recurrent_payment
+  recurrent_payment_start_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+        conditions:
+        - active_loop: setup_recurrent_payment
+          requested_slot: recurrent_payment_start_date
+  recurrent_payment_end_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+        conditions:
+        - active_loop: setup_recurrent_payment
+          requested_slot: recurrent_payment_end_date
+  recurrent_payment_confirmation:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+        - active_loop: setup_recurrent_payment
+          requested_slot: recurrent_payment_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+        - active_loop: setup_recurrent_payment
+          requested_slot: recurrent_payment_confirmation    
+
+forms:
+  setup_recurrent_payment:
+    required_slots:
+      - recurrent_payment_type
+      - recurrent_payment_recipient
+      - recurrent_payment_amount_of_money
+      - recurrent_payment_frequency
+      - recurrent_payment_start_date
+      - recurrent_payment_end_date
+      - recurrent_payment_confirmation
+
+responses:
+  utter_ask_recurrent_payment_type:
+    - text: "What type of payment would you like to set up?"
+      buttons:
+      - title: "Direct Debit"
+        payload: '/inform{{"recurrent_payment_type": "direct debit"}}'
+      - title: "Standing Order"
+        payload: '/inform{{"recurrent_payment_type": "standing order"}}'
+  utter_invalid_recurrent_payment_type:
+    - text: "Sorry, you requested a payment type that is not valid. Please select one of the available options."
+  utter_ask_recurrent_payment_recipient:
+    - text: "What is the name of the recipient?"
+  utter_ask_recurrent_payment_amount_of_money:
+    - text: "How much money should be transferred?"
+  utter_ask_recurrent_payment_frequency:
+    - text: "How often should the payment be made?"
+      buttons:
+      - title: "Monthly"
+        payload: '/inform{{"recurrent_payment_frequency": "monthly"}}'
+      - title: "Yearly"
+        payload: '/inform{{"recurrent_payment_frequency": "yearly"}}'
+  utter_invalid_recurrent_payment_frequency:
+    - text: "Sorry, you requested a payment frequency that is not valid. Please select one of the available options."
+  utter_ask_recurrent_payment_start_date:
+    - text: "When should the payment start?"
+  utter_ask_recurrent_payment_end_date:
+    - text: "When should the payment end?"
+  utter_invalid_recurrent_payment_end_date:
+    - text: "Sorry, you requested an end date that is before the start date."
+  utter_ask_recurrent_payment_confirmation:
+    - text: "Please confirm that you want to set up this payment."
+      buttons:
+      - title: "Yes"
+        payload: "/affirm"
+      - title: "No"
+        payload: "/deny"
+  utter_payment_complete:
+    - text: "Your payment has been set up."
+  utter_payment_failed:
+    - text: "Sorry, your payment could not be set up."
+  utter_payment_cancelled:
+    - text: "Your payment has been cancelled."
+  utter_failed_payment_handover:
+    - text: "Let me connect you to an agent, to get the details of what happened to your payment."
+  utter_invalid_date:
+    - text: "Sorry, the date that you provided could not be validated."

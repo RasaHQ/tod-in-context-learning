@@ -1,0 +1,49 @@
+recipe: default.v1
+
+assistant_id: version_3
+
+language: en
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: LanguageModelFeaturizer
+    alias: "lmf"
+  - name: RegexFeaturizer
+    alias: "rf"
+  - name: LexicalSyntacticFeaturizer
+    alias: "lsf"
+  - name: CountVectorsFeaturizer
+    alias: "cvf_w"
+  - name: CountVectorsFeaturizer
+    analyzer: char
+    min_ngram: 1
+    max_ngram: 4
+    alias: "cvf_c"
+  - name: LogisticRegressionClassifier
+    random_seed: 42
+  - name: "CRFEntityExtractor"
+    "BILOU_flag": False
+    # features to extract in the sliding window
+    "features": [
+      ["low", "title", "upper"],
+      [
+        "bias",
+        "low",
+        "prefix5",
+        "prefix2",
+        "suffix5",
+        "suffix3",
+        "suffix2",
+        "upper",
+        "title",
+        "digit",
+        "pattern",
+        "text_dense_features"
+      ],
+      ["low", "title", "upper"],
+    ]
+  - name: EntitySynonymMapper
+
+policies:
+  - name: RulePolicy
+  - name: MemoizationPolicy

@@ -1,0 +1,8 @@
+version: "3.1"
+
+nlu:
+- intent: check_balance
+  examples: |
+    - show me my balance
+    - how much money do I have
+    - whats in my account

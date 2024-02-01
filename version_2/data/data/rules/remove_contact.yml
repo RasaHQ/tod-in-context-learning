@@ -1,0 +1,16 @@
+rules:
+  - rule: remove contact
+    steps:
+      - intent: remove_contact
+      - action: remove_contact
+      - active_loop: remove_contact
+
+  - rule: Submit remove contact form
+    condition:
+    - active_loop: remove_contact
+    steps:
+    - action: remove_contact
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_remove_contact_success

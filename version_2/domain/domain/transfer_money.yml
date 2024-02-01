@@ -1,0 +1,68 @@
+version: "3.1"
+
+intents:
+  - transfer_money
+
+entities:
+  - amount
+
+slots:
+  transfer_money_final_confirmation:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+        conditions:
+        - active_loop: transfer_money
+          requested_slot: transfer_money_final_confirmation
+      - type: from_intent
+        intent: deny
+        value: false
+        conditions:
+        - active_loop: transfer_money
+          requested_slot: transfer_money_final_confirmation         
+  transfer_money_recipient:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+        conditions:
+        - active_loop: transfer_money        
+  transfer_money_amount_of_money:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: amount
+        conditions:
+        - active_loop: transfer_money
+
+forms:
+  transfer_money:
+    required_slots:
+      - transfer_money_recipient
+      - transfer_money_amount_of_money
+      - transfer_money_final_confirmation
+
+responses:
+  utter_transfer_money_insufficient_funds:
+    - text: You don't have so much money on your account!
+  utter_transfer_failed:
+    - text: something went wrong transferring the money.
+  utter_out_of_scope:
+    - text: Sorry, I'm not sure how to respond to that. Type "help" for assistance.
+  utter_ask_transfer_money_amount_of_money:
+    - text: How much money do you want to transfer?
+  utter_ask_transfer_money_recipient:
+    - text: Who do you want to transfer money to?
+  utter_transfer_complete:
+    - text: Successfully transferred {transfer_money_amount_of_money} to {transfer_money_recipient}.
+  utter_transfer_cancelled:
+    - text: Transfer cancelled.
+  utter_ask_transfer_money_final_confirmation:
+    - buttons:
+        - payload: yes
+          title: Yes
+        - payload: no
+          title: No, cancel the transaction
+      text: Would you like to transfer {transfer_money_amount_of_money} to {transfer_money_recipient}?

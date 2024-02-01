@@ -26,10 +26,10 @@ line_counts = read_line_count_data('line_counts.json')
 
 # Initialize table
 table = PrettyTable()
-table.field_names = ["Version", "Directory", "Domain", "Data", "Actions", "Total Lines", "Failed Tests", "Passed Tests"]
+table.field_names = ["Version", "Conversation Type", "Failed Tests", "Passed Tests"]
 
 # Process each version and directory
-versions = ['root', 'version_1']
+versions = ['version_1', 'version_2']
 for version in versions:
     version_path = f'dm1_versions/{version}' if version != 'root' else '.'
     #version_name = version if version != 'root' else 'Root'
@@ -39,7 +39,7 @@ for version in versions:
         failed_tests, passed_tests = parse_test_results(test_result_file)
         version_data = line_counts.get(version_path, {})
         total_lines = sum(version_data.values())
-        table.add_row([version, subdir, version_data.get("domain", 0), version_data.get("data", 0), version_data.get("actions", 0), total_lines, failed_tests, passed_tests])
+        table.add_row([version, subdir, failed_tests, passed_tests])
 
 # Print the table
 print(table)

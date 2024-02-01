@@ -1,0 +1,34 @@
+version: "3.1"
+
+nlu:
+- intent: setup_recurrent_payment
+  examples: |
+    - I want to set up a new recurrent payment
+    - set up a recurring payment
+    - I want to set up a new [standing order](recurrent_payment_type) payment.
+    - create a [direct debit](recurrent_payment_type)
+- intent: inform
+  examples: |
+    - [tomorrow](date)
+    - [today](date)
+    - from [January 1](date)
+    - until [December 31st](date)
+    - [direct debit](recurrent_payment_type)
+    - [standing order](recurrent_payment_type)
+    - [Jane Doe](name)
+    - [100](amount) euros
+    - [200](amount) pounds
+    - [monthly](recurrent_payment_frequency)
+    - [yearly](recurrent_payment_frequency)
+    - [direct debt](recurrent_payment_type)
+    - [d debit](recurrent_payment_type)
+    - [direct debit](recurrent_payment_type) transfer payment
+- synonym: direct debit
+  examples: |
+    - direct debt
+    - direct
+    - d debit
+- synonym: standing order
+  examples: |
+    - stand order
+    - standing

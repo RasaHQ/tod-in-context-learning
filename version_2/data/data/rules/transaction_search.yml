@@ -1,0 +1,8 @@
+rules:
+  - rule: transaction search
+    condition:
+      - active_loop: null
+    steps:
+      - intent: transaction_search
+      - action: transaction_search
+      - action: utter_transactions

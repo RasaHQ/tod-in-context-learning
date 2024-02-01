@@ -1,0 +1,19 @@
+version: "3.1"
+
+nlu:
+- intent: verify_account
+  examples: |
+    - I want to verify my account
+    - verify
+    - I need to validate my account
+- intent: inform
+  examples: |
+    - it's [me@gmail.com](email)
+    - [rosy@apple.com](email)
+    - should be [a.tweep@twitter.com](email)
+- intent: why_needed
+  examples: |
+    - why do you need to know that?
+    - how is that your business
+    - why do I have to tell you that
+    - does it matter?

@@ -1,0 +1,17 @@
+rules:
+  - rule: replace card
+    steps:
+      - intent: replace_card
+      - action: replace_card
+      - active_loop: replace_card
+
+  - rule: complete replacing card
+    condition:
+    - active_loop: replace_card
+    steps:
+    - action: replace_card
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null     
+    - action: utter_will_cancel_and_send_new
+    - action: utter_new_card_has_been_ordered

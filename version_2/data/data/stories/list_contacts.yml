@@ -1,0 +1,18 @@
+version: "3.1"
+stories:
+- story: list contacts - has contacts
+  steps:
+    - intent: list_contacts
+    - action: list_contacts
+    - slot_was_set:
+      - contacts_list: null
+    - action: utter_no_contacts
+    - action: utter_can_do_something_else
+- story: list contacts - has contacts
+  steps:
+    - intent: list_contacts
+    - action: list_contacts
+    - slot_was_set:
+      - contacts_list: "text"
+    - action: utter_list_contacts      
+    - action: utter_can_do_something_else

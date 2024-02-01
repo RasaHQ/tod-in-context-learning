@@ -1,0 +1,19 @@
+version: "3.1"
+
+intents:
+  - affirm
+  - deny
+  - inform
+
+slots:
+  return_value:
+    type: any
+
+responses:
+  utter_can_do_something_else:
+  - text: "Is there anything else I can do for you?"
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

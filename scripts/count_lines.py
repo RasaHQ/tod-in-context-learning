@@ -10,7 +10,7 @@ directories = {
 }
 
 # Root directories to loop over (excluding 'actions' as it's only in the root)
-root_dirs = ['.', 'dm1_versions/version_1', 'dm1_versions/version_2', 'dm1_versions/version_3', 'dm1_versions/version_4']
+root_dirs = ['version_1', 'version_2', 'version_3']
 
 # Data file to store line counts
 data_file = 'line_counts.json'

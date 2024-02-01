@@ -1,0 +1,68 @@
+version: "3.1"
+
+intents:
+  - verify_account
+  - why_needed
+
+entities:
+  - email
+
+slots:
+  verify_account_email:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: email
+  based_in_california:
+    type: bool
+    influence_conversation: false
+    initial_value: false
+
+responses:
+  utter_ask_verify_account_email:
+    - text: What's your email address?
+  utter_verify_account_success:
+    - text: Your account was successfully verified
+  utter_verify_account_cancelled:
+    - text: Cancelling account verification...
+  utter_ask_based_in_california:
+    - text: Are you based in California?
+      buttons:
+        - payload: "/affirm"
+          title: Yes
+        - payload: "/deny"
+          title: No
+  utter_ask_verify_account_sufficient_california_income:
+    - text: Does your yearly income exceed 100,000 USD?
+      buttons:
+        - payload: "/affirm"
+          title: Yes
+        - payload: "/deny"
+          title: No
+  utter_ca_income_insufficient:
+    - text: Unfortunately, we cannot increase your transfer limits under these circumstances.
+  utter_ask_verify_account_confirmation:
+    - condition:
+        - type: slot
+          name: based_in_california
+          value: true
+      text: Your email address is {verify_account_email} and you are based in California with a yearly income exceeding 100,000$, correct?
+      buttons:
+        - payload: "/affirm"
+          title: Yes
+        - payload: "/deny"
+          title: No, cancel
+    - condition:
+        - type: slot
+          name: based_in_california
+          value: false
+      text: Your email address is {verify_account_email} and you are not based in California, correct?
+      buttons:
+        - payload: "/affirm"
+          title: Yes
+        - payload: "/deny"
+          title: No, cancel
+  utter_california_compliance:
+    - text: For Californian residents, we collect information on annual earnings to comply with state laws for financial services. This is only needed if you want to verify your account for higher transaction limits. Rest assured, your data is safe with us.
+

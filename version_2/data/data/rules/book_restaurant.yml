@@ -1,0 +1,28 @@
+rules:
+  - rule: book restaurant
+    steps:
+      - intent: book_restaurant
+      - action: book_restaurant
+      - active_loop: book_restaurant
+
+  - rule: book restaurant, finalize
+    condition:
+    - active_loop: book_restaurant
+    steps:
+    - action: book_restaurant
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_restaurant_available
+    - action: book_restaurant_finalize
+    - active_loop: book_restaurant_finalize
+ 
+  - rule: book restaurant, wrap up
+    condition:
+    - active_loop: book_restaurant_finalize
+    steps:
+    - action: book_restaurant_finalize
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: utter_confirm_restaurant_booking

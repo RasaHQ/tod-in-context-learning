@@ -1,0 +1,17 @@
+version: "3.1"
+
+nlu:
+- intent: book_restaurant
+  examples: |
+    - I want to eat tonight
+    - I'm looking for a place for dinner
+    - show me good places to eat
+    - book me a restaurant
+    - wanna book a restaurant
+    - I want to book a table for [4](amount) at [Xaigon](restaurant_name) for [8pm](time) [tonight](date)
+- intent: inform
+  examples: |
+    - [8pm](time)
+    - [2](amount) people
+    - for [3](amount)
+    - [Bella Italia](restaurant_name)

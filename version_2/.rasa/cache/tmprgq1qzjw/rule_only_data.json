@@ -1,0 +1,12 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "replace_card",
+    "remove_contact",
+    "transfer_money",
+    "book_restaurant",
+    "add_contact",
+    "book_restaurant_finalize",
+    "setup_recurrent_payment"
+  ]
+}

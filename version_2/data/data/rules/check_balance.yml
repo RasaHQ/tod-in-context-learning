@@ -1,0 +1,7 @@
+rules:
+  - rule: check balance
+    steps:
+      - intent: check_balance
+      - action: check_balance
+      - action: utter_current_balance
+      - action: utter_can_do_something_else
