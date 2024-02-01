@@ -49,11 +49,18 @@ test-all: .EXPORT_ALL_VARIABLES
 
 # Test a specific version (usage: make test-version version=version_3)
 test-version: .EXPORT_ALL_VARIABLES
+	@mkdir -p test_results
 	@if [ "$(version)" = "root" ]; then \
 		echo "Testing root directory"; \
-		poetry run rasa test e2e e2e_tests -m models | grep "failed," > test_results.txt; \
+		for dir in e2e_tests/*/; do \
+		    dirname=$$(basename $$dir); \
+		    poetry run rasa test e2e $$dir -m models | grep "failed," > test_results/root_${dirname}.txt; \
+		done; \
 	else \
 		echo "Testing $(version)"; \
-		poetry run rasa test e2e e2e_tests -m dm1_versions/$(version)/models | grep "failed," > test_results_$(version).txt; \
+		for dir in e2e_tests/*/; do \
+		    dirname=$$(basename $$dir); \
+		    poetry run rasa test e2e $$dir -m dm1_versions/$(version)/models | grep "failed," > test_results/$(version)_$${dirname}.txt; \
+		done; \
 	fi
 

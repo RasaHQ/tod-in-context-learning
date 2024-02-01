@@ -1,5 +1,6 @@
 import json
 import re
+import os
 from prettytable import PrettyTable
 
 # Function to read line count data
@@ -25,17 +26,20 @@ line_counts = read_line_count_data('line_counts.json')
 
 # Initialize table
 table = PrettyTable()
-table.field_names = ["Version", "Domain", "Data", "Actions", "Total Lines", "Failed Tests", "Passed Tests"]
+table.field_names = ["Version", "Directory", "Domain", "Data", "Actions", "Total Lines", "Failed Tests", "Passed Tests"]
 
-# Process each version and root dir
-versions = ['.', 'dm1_versions/version_1', 'dm1_versions/version_2', 'dm1_versions/version_3', 'dm1_versions/version_4']
+# Process each version and directory
+versions = ['root', 'version_1']
 for version in versions:
-    version_name = version.split('/')[-1] if '/' in version else 'Root'
-    test_result_file = f'test_results_{version_name}.txt' if version_name != 'Root' else 'test_results.txt'
-    failed_tests, passed_tests = parse_test_results(test_result_file)
-    version_data = line_counts.get(version, {})
-    total_lines = sum(version_data.values())
-    table.add_row([version_name, version_data.get("domain", 0), version_data.get("data", 0), version_data.get("actions", 0), total_lines, failed_tests, passed_tests])
+    version_path = f'dm1_versions/{version}' if version != 'root' else '.'
+    #version_name = version if version != 'root' else 'Root'
+    # Loop through each subdirectory in e2e_tests
+    for subdir in os.listdir('e2e_tests'):
+        test_result_file = f'test_results/{version}_{subdir}.txt'
+        failed_tests, passed_tests = parse_test_results(test_result_file)
+        version_data = line_counts.get(version_path, {})
+        total_lines = sum(version_data.values())
+        table.add_row([version, subdir, version_data.get("domain", 0), version_data.get("data", 0), version_data.get("actions", 0), total_lines, failed_tests, passed_tests])
 
 # Print the table
 print(table)
