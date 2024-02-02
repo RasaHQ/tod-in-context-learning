@@ -29,7 +29,7 @@ table = PrettyTable()
 table.field_names = ["Version", "Conversation Type", "Failed Tests", "Passed Tests"]
 
 # Process each version and directory
-versions = ['version_1', 'version_2']
+versions = ['version_1', 'version_2', 'version_3']
 for version in versions:
     version_path = f'dm1_versions/{version}' if version != 'root' else '.'
     #version_name = version if version != 'root' else 'Root'
