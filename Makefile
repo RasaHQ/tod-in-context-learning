@@ -14,7 +14,7 @@ install:
 	poetry install
 
 train-version: .EXPORT_ALL_VARIABLES
-	cd $(version) && poetry run rasa train -c config.yml -d domain --data data
+	cd version_$(version) && poetry run rasa train -c config.yml -d domain --data data
 
 actions:
 	poetry run rasa run actions

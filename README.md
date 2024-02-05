@@ -15,6 +15,12 @@ To train and test a specific version (e.g. 1, 2, or 3), run:
 make train-version version=1
 ```
 
+and 
+
+```
+make test-version version=1
+```
+
 ### Versions
 
 **version_1**
