@@ -4,7 +4,6 @@ nlu:
 - intent: verify_account
   examples: |
     - I want to verify my account
-    - verify
     - I need to validate my account
 - intent: inform
   examples: |
@@ -14,6 +13,4 @@ nlu:
 - intent: why_needed
   examples: |
     - why do you need to know that?
-    - how is that your business
-    - why do I have to tell you that
     - does it matter?

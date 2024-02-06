@@ -5,6 +5,5 @@ nlu:
   examples: |
     - I want to remove a contact from my account
     - remove contacts
-    - remove a person from my list
     - remove [@barts](handle) to contacts
     - remove [@alan](handle)

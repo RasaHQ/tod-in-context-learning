@@ -4,5 +4,4 @@ nlu:
 - intent: list_contacts
   examples: |
     - show my my contacts
-    - who are my contacts
     - list contacts

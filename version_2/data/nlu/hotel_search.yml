@@ -3,7 +3,6 @@ version: "3.1"
 nlu:
 - intent: hotel_search
   examples: |
-    - can you show me a hotel
     - I'm looking for a hotel
     - hotels
     - recommend some nice places to stay

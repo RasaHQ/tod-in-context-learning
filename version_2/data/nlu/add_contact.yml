@@ -4,8 +4,6 @@ nlu:
 - intent: add_contact
   examples: |
     - I want to add a contact to my account
-    - add to contacts
-    - add a person to my list
     - add [@barts](handle) to contacts
 - intent: inform
   examples: |
