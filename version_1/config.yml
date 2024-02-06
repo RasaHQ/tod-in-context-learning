@@ -10,5 +10,6 @@ pipeline:
 
 policies:
   - name: rasa.core.policies.flow_policy.FlowPolicy
+  - name: rasa.core.policies.intentless_policy.IntentlessPolicy
 
 assistant_id: 20230405-114328-tranquil-mustard
