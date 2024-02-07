@@ -1,0 +1,6 @@
+intents:
+  - wait
+
+responses:
+  utter_take_your_time:
+    - text: please take your time

@@ -1,6 +1,6 @@
 version: "3.1"
 stories:
-- story: list contacts - has contacts
+- story: verify account - ask why
   steps:
     - intent: verify_account
     - action: utter_ask_verify_account_email
@@ -12,6 +12,21 @@ stories:
     - action: utter_california_compliance
     - action: utter_ask_based_in_california
     - intent: deny
+    - action: utter_ask_verify_account_confirmation
+    - intent: affirm
+    - action: utter_verify_account_success
+
+- story: verify account
+  steps:
+    - intent: verify_account
+    - action: utter_ask_verify_account_email
+    - intent: inform
+      entities:
+      - email: "me@gmail.com"
+    - action: utter_ask_based_in_california
+    - intent: affirm
+    - action: utter_ask_verify_account_sufficient_california_income
+    - intent: affirm
     - action: utter_ask_verify_account_confirmation
     - intent: affirm
     - action: utter_verify_account_success

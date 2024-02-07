@@ -1,0 +1,19 @@
+
+version: "3.1"
+stories:
+- story: interactive_story_1
+  steps:
+  - intent: transfer_money
+    entities:
+    - name: Yizhi
+  - action: transfer_money
+  - active_loop: transfer_money
+  - slot_was_set:
+    - transfer_money_recipient: Yizhi
+  - slot_was_set:
+    - requested_slot: transfer_money_amount_of_money
+  - intent: wait
+  - action: utter_take_your_time
+  - action: transfer_money
+  - slot_was_set:
+    - requested_slot: transfer_money_amount_of_money

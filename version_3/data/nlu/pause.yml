@@ -1,0 +1,9 @@
+version: "3.1"
+
+nlu:
+
+- intent: wait
+  examples: |
+    - wait one sec
+    - give me a minute
+    - let me look that up

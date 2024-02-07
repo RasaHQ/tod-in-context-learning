@@ -1,0 +1,7 @@
+rules:
+  - rule: respond if user asks to take their time
+    steps:
+      - intent: wait
+      - action: utter_take_your_time
+    wait_for_user_input: false
+
