@@ -6,7 +6,8 @@ from prettytable import PrettyTable
 # Directories to search for .yml files
 directories = {
     "domain": "*.yml",
-    "data": "*.yml"
+    "data": "*.yml",
+    "actions": "*.py"
 }
 
 # Root directories to loop over (excluding 'actions' as it's only in the root)
@@ -31,11 +32,9 @@ def find_files(directory, pattern):
 # Function to calculate line counts
 def calculate_line_counts(root_dirs):
     data = {}
-    # Count lines in 'actions' directory once, as it's only in the root
-    actions_line_count = sum(count_lines_in_file(file) for file in find_files('.', '*.py'))
     
     for root_dir in root_dirs:
-        line_counts = { "domain": 0, "data": 0, "actions": actions_line_count }
+        line_counts = { "domain": 0, "data": 0, "actions": 0 }
         
         for dir, pattern in directories.items():
             for filepath in find_files(os.path.join(root_dir, dir), pattern):

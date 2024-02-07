@@ -75,6 +75,26 @@ class ValidatePaymentEndDate(Action):
 
         return [SlotSet("recurrent_payment_end_date", end_date.isoformat())]
 
+class ValidateSetupRecurrentPayment(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_setup_recurrent_payment"
+
+    def validate_recurrent_payment_type(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        logger.error("validating recurrent payment type!")
+        """Validate recurrent payment type value."""
+
+        if slot_value.lower() in ["direct debit", "standing order"]:
+            return {"recurrent_payment_type": slot_value}
+        else:
+            dispatcher.utter_message(response = "utter_categorical_slot_rejection")
+            return {"recurrent_payment_type": None}
+
 class ExecutePayment(Action):
     def name(self) -> str:
         return "action_execute_recurrent_payment"

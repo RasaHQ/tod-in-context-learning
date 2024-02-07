@@ -34,9 +34,5 @@ test-version: .EXPORT_ALL_VARIABLES
 	@mkdir -p test_results
 	@echo "Testing version $(version)"; \
 	current_dir=$$(pwd); \
-	for dir in e2e_tests/*/; do \
-	    dirname=$$(basename $$dir); \
-	    cd version_$(version); \
-	    poetry run rasa test e2e ../$$dir -m models | grep "failed," > $$current_dir/test_results/version_$(version)_$${dirname}.txt; \
-	    cd $$current_dir; \
-	done;
+	./run_tests.sh $(version) $$current_dir;
+
