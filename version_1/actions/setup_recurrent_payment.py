@@ -75,11 +75,11 @@ class ValidatePaymentEndDate(Action):
 
         return [SlotSet("recurrent_payment_end_date", end_date.isoformat())]
 
-class ValidateSetupRecurrentPayment(Action):
+class ValidateSetupRecurrentPayment(FormValidationAction):
     def name(self) -> Text:
         return "validate_setup_recurrent_payment"
 
-    async def validate_recurrent_payment_type(
+    def validate_recurrent_payment_type(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,

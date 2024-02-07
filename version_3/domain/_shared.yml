@@ -14,6 +14,8 @@ responses:
     - text: Ok I've cancelled that
   utter_can_do_something_else:
     - text: is there anything else I can do?
+  utter_categorical_slot_rejection:
+    - text: I am afraid that is not a valid option
 
 session_config:
   session_expiration_time: 60
