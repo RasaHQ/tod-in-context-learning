@@ -1,0 +1,10 @@
+rules:
+  - rule: cancel transfer money form
+    condition:
+    - active_loop: transfer_money
+    steps:
+    - intent: cancel
+    - action: action_cancel_transfer
+    - active_loop: null
+    - action: utter_flow_cancelled_rasa
+    - action: utter_can_do_something_else

@@ -1,0 +1,21 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - hello
+    - hi there
+    - greetings
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+
+- intent: cancel
+  examples: |
+    - cancel
+    - stop this
+    - I give up

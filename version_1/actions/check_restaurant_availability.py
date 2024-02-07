@@ -7,12 +7,14 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 from rasa.nlu.extractors.duckling_entity_extractor import DucklingEntityExtractor
 from typing import List, Optional
+import logging
 
 duckling_config = {**DucklingEntityExtractor.get_default_config(),
-                   "url": "https://rasa:xCTBjGqjTqDqE6X72FXLiBWVXYaQDZ@duckling.rasa-dev.io",
+                   "url": "https://rasa:iRuYcYupYUaztJm73!_bNPTVGDcrbC@duckling.rasa-dev.io",
                    "dimensions": ["time"]}
 duckling = DucklingEntityExtractor(duckling_config)
 
+logger = logging.getLogger(__name__)
 
 class CheckRestaurantAvailability(Action):
 
@@ -54,6 +56,7 @@ class CheckRestaurantAvailability(Action):
 
         def is_restaurant_available(date: datetime) -> bool:
             # monday to thursday available after 7pm
+            logger.error(f"is restaurant available for {date} ? ")
             if date.weekday() < 4:
                 return date.hour > 19
             # Friday to Sunday available 4-5pm and 8-10pm

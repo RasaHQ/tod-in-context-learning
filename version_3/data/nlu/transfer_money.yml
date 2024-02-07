@@ -1,0 +1,8 @@
+version: "3.1"
+
+nlu:
+- intent: transfer_money
+  examples: |
+    - I want to send [40](amount) bucks to [Ty](name)
+    - I want to send [10](amount) bucks to [Spencer](name)
+    - send [10](amount) dollars to [Amy](name)

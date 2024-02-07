@@ -1,0 +1,5 @@
+rules:
+  - rule: greet
+    steps:
+      - intent: greet
+      - action: utter_greet

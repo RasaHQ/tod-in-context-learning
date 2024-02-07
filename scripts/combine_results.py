@@ -24,22 +24,32 @@ def parse_test_results(filename):
 # Read line count data
 line_counts = read_line_count_data('line_counts.json')
 
-# Initialize table
+# Initialize table with updated fields
 table = PrettyTable()
-table.field_names = ["Version", "Conversation Type", "Failed Tests", "Passed Tests"]
+field_names = ["Subdirectory"]
+versions = ['version_1', 'version_2', 'version_3']
+# Append version names as part of the field names
+for version in versions:
+    field_names.append(f"Version {version[-1]} Results")  # Assuming version format is consistent
+table.field_names = field_names
+
+# Initialize a dictionary to hold test results
+test_results = {}
 
 # Process each version and directory
-versions = ['version_1', 'version_2', 'version_3']
 for version in versions:
-    version_path = f'dm1_versions/{version}' if version != 'root' else '.'
-    #version_name = version if version != 'root' else 'Root'
     # Loop through each subdirectory in e2e_tests
     for subdir in os.listdir('e2e_tests'):
+        if subdir not in test_results:
+            test_results[subdir] = []
         test_result_file = f'test_results/{version}_{subdir}.txt'
         failed_tests, passed_tests = parse_test_results(test_result_file)
-        version_data = line_counts.get(version_path, {})
-        total_lines = sum(version_data.values())
-        table.add_row([version, subdir, failed_tests, passed_tests])
+        test_results[subdir].append(f"{passed_tests}/{passed_tests + failed_tests}")
+
+# Add rows to the table for each subdirectory with accumulated results
+for subdir, results in test_results.items():
+    row = [subdir] + results
+    table.add_row(row)
 
 # Print the table
 print(table)

@@ -1,0 +1,20 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - cancel
+
+responses:
+  utter_goodbye:
+    - text: Bye
+  utter_greet:
+    - text: Hi! How Can i help you?
+  utter_flow_cancelled_rasa:
+    - text: Ok I've cancelled that
+  utter_can_do_something_else:
+    - text: is there anything else I can do?
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

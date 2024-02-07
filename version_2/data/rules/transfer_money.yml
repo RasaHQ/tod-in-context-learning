@@ -14,3 +14,4 @@ rules:
     - slot_was_set:
       - requested_slot: null
     - action: utter_transfer_complete
+    - action: utter_can_do_something_else

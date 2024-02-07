@@ -1,0 +1,9 @@
+version: "3.1"
+
+nlu:
+- intent: setup_recurrent_payment
+  examples: |
+    - start a [international transfer](recurrent_payment_type)
+- intent: inform
+  examples: |
+    - [international transfer](recurrent_payment_type)

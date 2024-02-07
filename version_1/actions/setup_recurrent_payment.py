@@ -1,14 +1,17 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Text, Any, Dict
 
 from rasa.shared.nlu.training_data.message import Message
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.events import EventType, SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+import logging
 
 from actions.check_restaurant_availability import duckling
 
+
+logger = logging.getLogger(__name__)
 
 def parse_datetime(text: str) -> Optional[datetime]:
     msg = Message.build(text)
@@ -72,6 +75,25 @@ class ValidatePaymentEndDate(Action):
 
         return [SlotSet("recurrent_payment_end_date", end_date.isoformat())]
 
+class ValidateSetupRecurrentPayment(Action):
+    def name(self) -> Text:
+        return "validate_setup_recurrent_payment"
+
+    async def validate_recurrent_payment_type(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        logger.error("validating recurrent payment type!")
+        """Validate recurrent payment type value."""
+
+        if slot_value.lower() in ["direct debit", "standing order"]:
+            return {"recurrent_payment_type": slot_value}
+        else:
+            dispatcher.utter_message(response = "utter_categorical_slot_rejection")
+            return {"recurrent_payment_type": None}
 
 class ExecutePayment(Action):
     def name(self) -> str:

@@ -1,0 +1,5 @@
+rules:
+  - rule: goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye

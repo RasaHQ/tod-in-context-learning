@@ -1,0 +1,12 @@
+version: "3.1"
+
+nlu:
+- intent: book_restaurant
+  examples: |
+    - I want to book a table for [3](amount) people at [Shiso Burger](restaurant_name)
+- intent: inform
+  examples: |
+    - [7pm](time)
+    - [2](amount) people
+    - for [1](amount)
+    - [Maria Bonita](restaurant_name)
