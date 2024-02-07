@@ -1,0 +1,9 @@
+version: "3.1"
+
+nlu:
+
+- intent: what_are_transfer_charges
+  examples: |
+    - Are transfers on free with this service?
+    - how much does a transfer cost?
+    - is transfer free?

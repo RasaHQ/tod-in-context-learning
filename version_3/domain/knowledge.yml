@@ -1,0 +1,6 @@
+intents:
+  - what_are_transfer_charges
+
+responses:
+  utter_free_transfers:
+    - text: transfers are free

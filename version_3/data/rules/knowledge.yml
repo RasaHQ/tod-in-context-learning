@@ -1,0 +1,6 @@
+rules:
+  - rule: free transfers
+    steps:
+      - intent: what_are_transfer_charges
+      - action: utter_free_transfers
+
