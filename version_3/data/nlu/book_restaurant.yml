@@ -3,10 +3,57 @@ version: "3.1"
 nlu:
 - intent: book_restaurant
   examples: |
-    - I want to book a table for [3](amount) people at [Shiso Burger](restaurant_name)
+    - Reserve a table for dinner
+    - I'd like to make a reservation for a meal
+    - Book a table for [2](amount) at [La Piazza](restaurant_name) for [7pm](time) [tomorrow](date)
+    - Can I get a reservation for [6pm](time) at [The Curry House](restaurant_name)?
+    - I need a table for [5](amount) at [El Ranchero](restaurant_name) this [Friday](date)
+    - Secure a booking for [8](amount) at [Tokyo Sushi](restaurant_name) [next Saturday](date) at [9pm](time)
+    - Arrange a dinner spot for [3](amount) at [Pasta Bella](restaurant_name) [tonight](date) around [8:30pm](time)
+    - Looking to dine at [Mama Mia](restaurant_name) with a party of [4](amount) [tomorrow night](date) at [7:30pm](time)
+    - Please find me a spot at [The Great Indian](restaurant_name) for [2](amount) [this Sunday](date) at [1pm](time)
+    - Need a reservation for [10](amount) at [Dragon Palace](restaurant_name) for [next Friday](date) at [8pm](time)
+    - Set up a dinner reservation for [6](amount) at [Bistro Cafe](restaurant_name) [tonight](date) at [6pm](time)
+    - I want a table for [2](amount) at [Olive Garden](restaurant_name) [tomorrow](date) around [7:45pm](time)
+    - Could you book a table for [4](amount) at [Saffron Lounge](restaurant_name) for [next Monday](date) [8pm](time)?
+    - I'm looking for a booking for [3](amount) at [The Blue Oyster](restaurant_name) [this Saturday](date) at [5pm](time)
+    - Arrange a meal for [2](amount) at [The French Laundry](restaurant_name) [tomorrow](date) at [12pm](time)
+    - I need a booking for [5](amount) at [Gordon Ramsay Steak](restaurant_name) for [next Wednesday](date) at [9pm](time)
+    - Can we get a spot at [Vegan Delight](restaurant_name) for [4](amount) [this Friday](date) at [7pm](time)?
+    - Reserve a lunch spot for [1](amount) at [Cafe de Flore](restaurant_name) [today](date) at [1pm](time)
+    - Booking for [8](amount) at [Little Italy](restaurant_name) [next Sunday](date) at [2pm](time)
+    - I'd like to dine at [The Seafood Market](restaurant_name) with [6](amount) [next Thursday](date) at [8pm](time)
+    - wanna book a table for [2](amount) at [Wen Cheng](restaurant_name) for [8pm](time) [tonight](date)
+    - book a table at [Lao Xiang](restaurant_name)
+
 - intent: inform
   examples: |
-    - [7pm](time)
-    - [2](amount) people
-    - for [1](amount)
-    - [Maria Bonita](restaurant_name)
+- intent: inform
+  examples: |
+    - Time is [6:30pm](time)
+    - We are [4](amount) in total
+    - Reservation for [5](amount)
+    - Venue is [Sushi Zen](restaurant_name)
+    - For [7pm](time) please
+    - It's for [2](amount) guests
+    - The place is [Steak House](restaurant_name)
+    - [Next Monday](date) at [7:30pm](time)
+    - Party of [6](amount)
+    - [Gino's Italian](restaurant_name) is our choice
+    - Booking at [12pm](time) for lunch
+    - The reservation is for [8](amount) people
+    - I'm talking about [Le Bistro](restaurant_name)
+    - Meeting time at [9am](time)
+    - Group size is [3](amount) people
+    - Need a table for [7](amount)
+    - Location is [The Coffee Shop](restaurant_name)
+    - Can we do [Thursday](date) at [5pm](time)?
+    - Dinner for [4](amount) please
+    - Table for [1](amount) at [Midnight Diner](restaurant_name)
+    - Let's make it [this Friday](date) [8pm](time)
+    - Gathering of [10](amount)
+    - Prefer [Luigi's Pizza](restaurant_name) this time
+    - Arrange lunch for [1pm](time)
+    - Booking for [2](amount) under my name
+    - Our spot is [The Vegan Corner](restaurant_name)
+    - [Tomorrow](date) at [6:45pm](time) works

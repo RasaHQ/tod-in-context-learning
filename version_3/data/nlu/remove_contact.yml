@@ -1,0 +1,20 @@
+version: "3.1"
+
+nlu:
+- intent: remove_contact
+  examples: |
+    - Delete a contact from my list
+    - I need to delete [@mikeJ](handle) from my contacts
+    - How do I remove someone from my contacts?
+    - Erase [@sarahL](handle) from my contact list
+    - Take [@tomB](handle) off my contacts
+    - Can you get rid of [@jennyK](handle) in my contacts?
+    - Unlist [@daveC](handle) from my contacts
+    - I'd like to expunge [@lauraG](handle) from my list
+    - Please, remove [@kevinT](handle) from my contacts
+    - Eliminate [@emilyR](handle) from my contact directory
+    - remove [@emilyR](handle) from my contacts
+    - pls remove [@james](handle) from contacts
+    - delete a contact
+    - remove a contact - [@emilyB](handle)
+

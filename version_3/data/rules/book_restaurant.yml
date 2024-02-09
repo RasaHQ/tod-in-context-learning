@@ -13,7 +13,7 @@ rules:
     - active_loop: null
     - slot_was_set:
       - requested_slot: null
-    - action: utter_restaurant_available
+    - action: check_restaurant_availability
     - action: book_restaurant_finalize
     - active_loop: book_restaurant_finalize
  

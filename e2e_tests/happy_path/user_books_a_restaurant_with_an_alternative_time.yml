@@ -1,11 +1,11 @@
 test_cases:
   - test_case: user books a restaurant with an alternative time
     steps:
-      - user: I want to book a table for 4 at Xaigon for 7pm tonight
+      - user: I want to book a table for 4 at Xaigon for 7pm Friday
       - slot_was_set:
           - book_restaurant_name_of_restaurant: Xaigon
           - book_restaurant_number_of_people: "4"
-          - book_restaurant_date: tonight
+          - book_restaurant_date: Friday
           - book_restaurant_time: 7pm
       - utter: utter_restaurant_not_available
       - utter: utter_ask_book_restaurant_alternative_dummy

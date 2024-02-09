@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: check_balance
+  examples: |
+    - What's my current balance?
+    - Can you tell me my account balance?
+    - I'd like to know the amount in my account.
+    - Display my account balance, please.
+    - Need to check my balance.
+    - What is the total in my account right now?
+    - Could you provide my latest account balance?
+    - I'm looking to see how much money is in my account.
+    - Please, show the balance available in my account.
+    - Tell me, what's the balance of my account?

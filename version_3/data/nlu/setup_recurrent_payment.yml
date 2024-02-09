@@ -7,3 +7,8 @@ nlu:
 - intent: inform
   examples: |
     - [international transfer](recurrent_payment_type)
+    - [02/11/27](date)
+    - [01/04/22](date)
+    - [02-11-27](date)
+    - [2.4.2025](date)
+
