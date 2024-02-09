@@ -1,0 +1,28 @@
+version: "3.1"
+
+nlu:
+- intent: replace_card
+  examples: |
+    - I require a replacement for my card
+    - Issue me a new card, mine was [stolen](replacement_reason)
+    - Need to get a new card, old one is [worn out](replacement_reason)
+    - Please replace my [broken](replacement_reason) card
+    - My card has been [compromised](replacement_reason), I need a new one
+    - Apply for a new card, current one is [not working](replacement_reason)
+    - Requesting a replacement for a [lost](replacement_reason) card
+    - Can I get a new card? Mine is [defective](replacement_reason)
+    - I want to order a new card, mine was [destroyed](replacement_reason)
+    - My card needs replacement, it got [damaged](replacement_reason)
+
+- intent: inform
+  examples: |
+    - It was [stolen](replacement_reason)
+    - The card is [worn out](replacement_reason)
+    - I have a [broken](replacement_reason) card
+    - My card got [compromised](replacement_reason)
+    - The card is [not working](replacement_reason)
+    - It's [defective](replacement_reason)
+    - The card was [destroyed](replacement_reason)
+    - It’s [missing](replacement_reason)
+    - I [misplaced](replacement_reason) my card
+    - Card has been [severely damaged](replacement_reason)

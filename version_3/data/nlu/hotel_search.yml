@@ -1,0 +1,18 @@
+version: "3.1"
+
+nlu:
+- intent: hotel_search
+  examples: |
+    - Find me a place to stay
+    - I need a hotel booking
+    - Show me hotels in the area
+    - Where can I stay tonight?
+    - Looking for accommodation
+    - Any hotel recommendations?
+    - Need to book a hotel room
+    - Searching for hotels nearby
+    - Can you suggest some hotels?
+    - What are the best hotels around?
+    - Hotel options for my vacation
+    - Affordable hotels near me
+    - Luxury hotels for my trip

@@ -1,0 +1,37 @@
+version: "3.1"
+
+nlu:
+- intent: add_contact
+  examples: |
+    - Please add a new contact named [@johnDoe](handle) to my list
+    - Insert [@janeDoe](handle) into my contact list
+    - Can you add [@steveM](handle) to my contacts please?
+    - Add [@emmaW](handle) to my contact directory
+    - Make sure to include [@mikeL](handle) in my contacts
+    - I need to add [@lucyH](handle) to the contacts
+    - Could you add [@tomR](handle) to my contact list?
+    - I'd like [@saraK](handle) added as a contact
+
+- intent: inform
+  examples: |
+    - The username is [@janeDoe](handle)
+    - Contact handle for addition [@johnDoe](handle)
+    - Handle to add is [@emmaW](handle)
+    - It's [@mikeL](handle) for the contact
+    - I'm referring to [@lucyH](handle)
+    - The name is [Steve](name)
+    - It is [Emma](name) I'm talking about
+    - Please note the name [Mike](name)
+    - Mentioning [Lucy](name) for the record
+    - The individual is [Tom](name)
+    - We're discussing [Sara](name)
+    - Referencing [Jane](name) here
+    - The person in question is [John](name)
+    - [@jim2](handle)
+    - [@madchad33](handle)
+    - [@brad](handle) please
+    - it is [@phil](handle)
+    - I mean [@lucy32](handle)
+    - [@ameliaT](handle)
+    - [@masonD](handle)
+    - [@isabellaV](handle)

@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: transaction_search
+  examples: |
+    - Can you display my recent transactions?
+    - I'd like to review my spending history.
+    - Show me my transaction history.
+    - Need to see what transactions I've made recently.
+    - Let me see my expenditures.
+    - What are my recent bank transactions?
+    - Display my spending activity.
+    - I want to check my last few transactions.
+    - Please list my recent financial transactions.
+    - How can I view my past transactions?

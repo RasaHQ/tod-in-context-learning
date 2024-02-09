@@ -1,0 +1,15 @@
+version: "3.1"
+
+nlu:
+- intent: list_contacts
+  examples: |
+    - Can you display my contacts?
+    - I need to see my contact list
+    - Show me all my contacts, please
+    - How can I view my contacts?
+    - I want to review my contacts list
+    - Display the list of my contacts
+    - Could you list all my contacts?
+    - Access my contact directory
+    - Reveal my phonebook entries
+    - Let me have a look at my contacts

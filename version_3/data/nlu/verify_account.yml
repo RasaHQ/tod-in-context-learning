@@ -1,0 +1,41 @@
+version: "3.1"
+
+nlu:
+- intent: verify_account
+  examples: |
+    - Proceed with account verification
+    - How can I confirm my account details?
+    - I'd like to go through with verifying my account
+    - Steps to account validation needed
+    - What's required to authenticate my account?
+    - I must authenticate my profile
+    - Guide me through the account verification process
+    - I wish to validate my user account
+    - Assistance with my account authentication, please
+    - Let's verify my account information
+
+- intent: inform
+  examples: |
+    - My email is [j.doe@gmail.com](email)
+    - Contact me at [max@outlook.com](email)
+    - Use [sarah@live.com](email) for verification
+    - My email address is [tommy@icloud.com](email)
+    - Verification email [liz@facebook.com](email)
+    - Send the confirmation to [hank@amazon.com](email)
+    - [george@spotify.com](email) is my email
+    - Email for verification: [nina@netflix.com](email)
+    - Here's my email: [alex@linkedin.com](email)
+    - For verification use [emma@twitter.com](email)
+
+- intent: why_needed
+  examples: |
+    - Why is this information necessary?
+    - What's the reason for needing this?
+    - Why do you need my details?
+    - Is it important to provide this?
+    - Can you explain why you need this info?
+    - What's the purpose of asking?
+    - Why must you know this?
+    - Do you really need this information?
+    - What's the justification for this request?
+    - Why are these details required?

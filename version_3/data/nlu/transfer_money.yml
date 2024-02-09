@@ -7,3 +7,27 @@ nlu:
     - I want to send [10](amount) bucks to [Spencer](name)
     - send [10](amount) dollars to [Amy](name)
     - none of these, just need a one off payment
+    - Make a money transfer
+    - Can you transfer some funds?
+    - Execute a payment to [Alex](name)
+    - Arrange to send [200](amount) euros to [Sophie](name)
+    - I need to wire [50](amount)$ to [Tom](name)
+    - Complete a fund transfer
+    - I'd like to send [100](amount) pounds to [Olivia](name)
+    - Process a payment to [Ethan](name)
+    - I'm looking to move money to [Emma](name)'s account
+    - Facilitate a transfer of [250](amount)$ to [Noah](name)
+
+- intent: inform
+  examples: |
+    - The recipient is [Liam](name)
+    - It's for [Ava](name)
+    - Transfer to [Mia](name)
+    - Amount is $[50](amount)
+    - [20](amount) euros to send
+    - Please move $[30](amount)
+    - [75](amount) pounds
+    - Sending to [Lucas](name)
+    - Pay [Charlotte](name)
+    - [60](amount) dollars for [Jack](name)
+

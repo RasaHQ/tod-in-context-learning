@@ -1,5 +1,8 @@
 version: "3.1"
 
+actions:
+  - check_restaurant_availability
+
 intents:
   - book_restaurant
 
@@ -54,7 +57,20 @@ slots:
         value: false
         conditions:
         - active_loop: book_restaurant_finalize
-
+  is_restaurant_available:
+    type: bool
+  book_restaurant_offered_alternative_dates:
+    type: list
+    initial_value: [ ]
+  book_restaurant_is_date_flexible:
+    type: bool
+    initial_value: true
+  book_restaurant_has_alternative_restaurant:
+    type: bool
+  book_restaurant_alternative_dummy:
+    type: text
+  book_restaurant_given_alternative:
+    type: text
 
 forms:
   book_restaurant:
