@@ -21,6 +21,7 @@ rasa = [
     # {version = "3.7.0rc3", python = ">=3.9", allow-prereleases = true}
     {version = "3.7.0rc3", allow-prereleases = true}
 ]
+prettytable = "^3.9.0"
 
 [tool.poetry.group.dev.dependencies]
 toml = "^0.10.2"
