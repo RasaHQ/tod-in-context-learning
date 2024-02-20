@@ -26,6 +26,9 @@ Set the env var `RASA_PRO_LICENSE=<your rasa pro license key>`
 If you want to run version_1, you'll need to set the env var `OPENAI_API_KEY=<your openai api key>`. 
 Alternatively, you can edit `version_1/config.yml` to use a different LLM. Follow the instructions [here](https://rasa.com/docs/rasa-pro/concepts/components/llm-configuration#other-llmsembeddings).
 
+Some of the tests require duckling to pass.
+To set this up, run a [duckling](https://github.com/facebook/duckling) server, and set the url in `version_1/actions/check_restaurant_availability.py`
+
 ### Training and testing a version of the bot:
 To train and test a specific version (e.g. 1, 2, or 3), run:
 
