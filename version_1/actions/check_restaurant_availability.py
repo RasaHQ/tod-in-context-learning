@@ -10,7 +10,7 @@ from typing import List, Optional
 import logging
 
 duckling_config = {**DucklingEntityExtractor.get_default_config(),
-                   "url": "https://rasa:iRuYcYupYUaztJm73!_bNPTVGDcrbC@duckling.rasa-dev.io",
+                   "url": "https://username:password@example.com",
                    "dimensions": ["time"]}
 duckling = DucklingEntityExtractor(duckling_config)
 

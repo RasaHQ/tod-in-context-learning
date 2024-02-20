@@ -28,6 +28,9 @@ line_counts = read_line_count_data('line_counts.json')
 table = PrettyTable()
 field_names = ["Subdirectory"]
 versions = ['version_1', 'version_2', 'version_3']
+total_passes = {version: 0 for version in versions}
+total_tests = {version: 0 for version in versions}
+
 # Append version names as part of the field names
 for version in versions:
     field_names.append(f"Version {version[-1]} Results")  # Assuming version format is consistent
@@ -44,6 +47,8 @@ for version in versions:
             test_results[subdir] = []
         test_result_file = f'test_results/{version}_{subdir}.txt'
         failed_tests, passed_tests = parse_test_results(test_result_file)
+        total_passes[version] += passed_tests
+        total_tests[version] += passed_tests + failed_tests
         test_results[subdir].append(f"{passed_tests}/{passed_tests + failed_tests}")
 
 # Add rows to the table for each subdirectory with accumulated results
@@ -53,3 +58,12 @@ for subdir, results in test_results.items():
 
 # Print the table
 print(table)
+
+# Calculate and print pass rate for each version
+print(f"Total number of tests: {total_tests['version_1']}")
+for version in versions:
+    if total_tests[version] > 0:
+        pass_rate = (total_passes[version] / total_tests[version]) * 100
+        print(f"{version} Pass Rate: {pass_rate:.2f}%")
+    else:
+        print(f"{version} Pass Rate: No data")
